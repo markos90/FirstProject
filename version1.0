@@ -1,0 +1,55 @@
+name = input("I would like to know your name peasant! Pray do tell! ")
+print("Well hello " + name.upper() + ", are you ready to play a game?")
+answer = input("What do you say? ")
+print(answer + " you say...well " + name + ", I think we should begin...")
+print("so...")
+
+import time
+time.sleep(1)
+print("What game to play")
+time.sleep(2)
+print("Let me think")
+time.sleep(2)
+print("A guessing game!")
+time.sleep(2)
+
+print("I am thinking of a number between 1 and 50, can you guess which I am thinking of? ")
+
+import random
+
+attempts = 0
+number = random.randint(1, 50)
+while True:
+    try:
+        print("Take a guess")
+        guess = input()
+        guess = int(guess)
+        attempts = attempts + 1
+    except ValueError:
+        print("You can only put in numbers you numpty!")
+        continue
+
+    if guess < number:
+        print("Alas, the number I am thinking of is higher")
+
+    if guess > number:
+        print("Alas, the number I am thinking of is lower")
+
+    if guess > 50:
+        print("Use your damn eyes! The number is between 1 and 50")
+
+    if guess == number:
+        break
+
+
+if guess == number:
+    attempts = str(attempts)
+    print("Correct! " + name + " You completed the task in " + attempts + " attempts")
+    if int(attempts) < 10:
+        print("You are a worthy opponent " + name + ", no further training is needed!")
+
+    if int(attempts) >= 10:
+        print("You have had many attempts " + name + ". Improvement is needed.")
+
+
+
